@@ -8,28 +8,25 @@ function App() {
   const dataUrl = 'https://jsonplaceholder.typicode.com/todos'
   const [todos, setTodos] = useState(null)
 
-  const onUpdateTodo = (todo) => {
-    const todoItemIndex = todos.findIndex((x) => x.id == todo.id);
-    const newTodos = [...todos];
-
-    const newTodo = newTodos[todoItemIndex];
-    newTodo.completed = !newTodo.completed;
-    newTodos[todoItemIndex] = newTodo;
-    setTodos(newTodos);
-  };
-
-
-
   useEffect(() => {
     axios.get(dataUrl).then((result) => {
       setTodos(result.data)
     })
   }, []) // only when components loads this one will run
 
+  const addTodo = (newTodo) => {
+    setTodos([...todos, newTodo]);
+  };
+  
+  const deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+
   return (
     <>
       {todos ? (
-        <TodoList todos={todos} onUpdateTodo={onUpdateTodo} />
+        <TodoList todos={todos} addTodo={addTodo} deleteTodo={deleteTodo} />
       ) : (
         <Loading />
       )}    </>
