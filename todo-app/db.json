@@ -8,6 +8,11 @@
     {
       "id": "211",
       "todo": "asd",
+      "completed": true
+    },
+    {
+      "id": "2111",
+      "todo": "new task",
       "completed": false
     }
   ]

@@ -94,8 +94,8 @@ const TodoList = () => {
       </form>
       {todos.map((todo) =>
         editableTodo && editableTodo.id === todo.id ? (
-          <div key={todo.id} style={{ display: "flex", justifyContent:"space-around" }}
-            className="bg-primary">
+          <div key={todo.id}
+            className="d-flex justify-content-around">
             <form onSubmit={handleEditTodo}>
               <input
                 type="text"
@@ -111,7 +111,7 @@ const TodoList = () => {
             <button onClick={() => setEditableTodo(null)}>X</button>
           </div>
         ) : (
-          <div key={todo.id} style={{ display: "flex", margin: "8px" }}>
+          <div key={todo.id} className="d-flex mt-3 justify-content-around">
             <p
               onClick={() => toggleComplete(todo)}
               style={{
