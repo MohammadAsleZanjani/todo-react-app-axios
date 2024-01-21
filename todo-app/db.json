@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "id": "2",
+      "todo": "json inistial server 2f",
+      "completed": false
+    },
+    {
+      "id": "21",
+      "todo": "fucksda",
+      "completed": false
+    }
+  ]
+}
