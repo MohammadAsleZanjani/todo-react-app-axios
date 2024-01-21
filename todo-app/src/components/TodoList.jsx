@@ -95,7 +95,7 @@ const TodoList = () => {
       {todos.map((todo) =>
         editableTodo && editableTodo.id === todo.id ? (
           <div key={todo.id}
-            className="d-flex justify-content-around">
+            className="d-flex justify-content-between align-items-center">
             <form onSubmit={handleEditTodo}>
               <input
                 type="text"
@@ -111,7 +111,7 @@ const TodoList = () => {
             <button onClick={() => setEditableTodo(null)}>X</button>
           </div>
         ) : (
-          <div key={todo.id} className="d-flex mt-3 justify-content-around">
+          <div key={todo.id} className="d-flex mt-3 justify-content-between align-items-center">
             <p
               onClick={() => toggleComplete(todo)}
               style={{
@@ -119,8 +119,11 @@ const TodoList = () => {
               }}>
               {todo.todo}
             </p>
+            <div className="d-flex justify-content-between align-items-center">
+            <button style={{marginRight:"5px"}} onClick={() => setEditableTodo(todo)}>E</button>
             <button onClick={() => handleDelete(todo)}>X</button>
-            <button onClick={() => setEditableTodo(todo)}>Edit</button>
+              
+            </div>
           </div>
         )
       )}
